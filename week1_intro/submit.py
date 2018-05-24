@@ -13,7 +13,7 @@ def submit_interface(policy, email, token):
     actions = {'left': 0, 'stop': 1, 'right': 2}
 
     for t in range(TIME_LIMIT):
-        s, r, done, _ = env.step(policy(t))
+        s, r, done, _ = env.step(policy(t,s))
         if done:
             break
     else: 
