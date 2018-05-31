@@ -109,6 +109,7 @@ class EVSarsaAgent:
 
         #agent parameters:
         epsilon = self.epsilon
+        self.epsilon = 0.99*epsilon
 
         #<YOUR CODE HERE>
         choice = np.random.random() > epsilon
