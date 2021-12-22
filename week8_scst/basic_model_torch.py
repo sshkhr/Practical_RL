@@ -117,7 +117,7 @@ class BasicTranslationModel(nn.Module):
 
 def infer_mask(seq, eos_ix, batch_first=True, include_eos=True, type=torch.FloatTensor):
     """
-    compute length given output indices and eos code
+    compute mask given output indices and eos code
     :param seq: tf matrix [time,batch] if batch_first else [batch,time]
     :param eos_ix: integer index of end-of-sentence token
     :param include_eos: if True, the time-step where eos first occurs is has mask = 1
@@ -136,8 +136,8 @@ def infer_mask(seq, eos_ix, batch_first=True, include_eos=True, type=torch.Float
 
 def infer_length(seq, eos_ix, batch_first=True, include_eos=True, type=torch.LongTensor):
     """
-    compute mask given output indices and eos code
-    :param seq: tf matrix [time,batch] if time_major else [batch,time]
+    compute length given output indices and eos code
+    :param seq: tf matrix [time,batch] if batch_first else [batch,time]
     :param eos_ix: integer index of end-of-sentence token
     :param include_eos: if True, the time-step where eos first occurs is has mask = 1
     :returns: mask, float32 matrix with '0's and '1's of same shape as seq
